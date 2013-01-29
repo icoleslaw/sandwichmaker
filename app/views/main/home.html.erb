@@ -3,7 +3,7 @@
 </h1>
 
 <div>
-<%= form_for(@order) do |f| %>
+<%= form_for(@order, url: {action: :postorder} ) do |f| %>
   <fieldset>
   <label>Name</label>
   <%= wrap_field_with_error(@order, :name) do %>
@@ -14,10 +14,10 @@
     <%= f.text_field :email, placeholder: "Your email" %>
   <% end %>
   <label>Sandwich Type</label>
-  <%= wrap_field_with_error(@order, :type) do %>
-    <%= f.radio_button :type, 'meaty' %>Meaty
-    <%= f.radio_button :type, 'veggie' %>Veggie
-    <%= f.radio_button :type, 'vegan' %>Vegan
+  <%= wrap_field_with_error(@order, :ordertype) do %>
+    <%= f.radio_button :ordertype, 'meaty' %>Meaty
+    <%= f.radio_button :ordertype, 'veggie' %>Veggie
+    <%= f.radio_button :ordertype, 'vegan' %>Vegan
   <% end %>
   <%= f.submit "Submit", class:"btn btn-primary" %>
   </fieldset>

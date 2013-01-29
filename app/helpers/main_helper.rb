@@ -7,7 +7,7 @@ def wrap_field_with_error(object, field)
   has_error = error
   content_tag(:div, class: has_error ? 'control-group error' : 'control-group') do
     yield
-    concat content_tag(:span, error, class: 'help-inline') if has_error
+    concat content_tag(:div, error, class: 'help-block') if has_error
   end
 end
 
