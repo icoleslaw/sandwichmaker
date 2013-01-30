@@ -23,4 +23,10 @@ describe Order do
   it "should return an empty list for ingredients when none are set" do
     valid_order.ingredients.should eq []
   end
+
+  it "can produce a description of itself" do
+    valid_order.get_description.should eq "veggie sandwich"
+    order_with_ingredients = Order.new(name: 'Alex', email: 'abc@gmail.com', ordertype: 'meaty', ingredients: ['bacon', 'rubber'])
+    order_with_ingredients.get_description.should eq "meaty bacon and rubber sandwich"
+  end
 end

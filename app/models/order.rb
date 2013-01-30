@@ -24,4 +24,12 @@ class Order < ActiveRecord::Base
   def ingredients
     read_attribute(:ingredients)||[]
   end
+
+  def get_description
+    result = "#{ordertype} "
+    if ingredients.size > 0
+      result << "#{ingredients.to_sentence} "
+    end
+    result << "sandwich"
+  end
 end
