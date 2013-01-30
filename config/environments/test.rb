@@ -35,5 +35,8 @@ Sandwhichmaker::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 
-  config.sandwich_notify_email = 'fakeemailfortest'
+  # The address sent emails appear to originate from
+  config.sandwich_from_email = 'fake-value-for-test'
+  # The address to notify with a request for a sandwich
+  config.sandwich_email_to_notify = 'fake-value-for-test'
 end

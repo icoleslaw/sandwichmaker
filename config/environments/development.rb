@@ -48,6 +48,8 @@ Sandwhichmaker::Application.configure do
     enable_starttls_auto: true
   }
 
-  # Where to send the request for a sandwich
-  config.sandwich_notify_email = '--notify-email-goes-here--'
+  # The address sent emails appear to originate from
+  config.sandwich_from_email = '--from-email-goes-here--'
+  # The address to notify with a request for a sandwich
+  config.sandwich_email_to_notify = '--email-to-notify-goes-here--'
 end

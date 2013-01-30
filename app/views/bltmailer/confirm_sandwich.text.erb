@@ -1,0 +1,2 @@
+Hello <%= @order.name %>, this confirms your order of one <%= @order.get_description %> on <%= Time.now.strftime("%m/%d/%Y %H:%M") %>.
+An email has been set to <%= @notify_email %>.

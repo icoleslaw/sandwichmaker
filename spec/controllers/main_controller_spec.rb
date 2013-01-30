@@ -4,12 +4,12 @@ describe MainController do
 
   it "should save an order and send an email in response to a post" do
     Order.all.size.should be 0
-    ActionMailer::Base.deliveries.size.should be 0
+    emails_sent_before=ActionMailer::Base.deliveries.size
 
     post :postorder, order: {name: 'Alex', email: 'alex@gmail.com', ordertype: 'vegan'}
     Order.all.size.should be 1
 
-    ActionMailer::Base.deliveries.size.should be 1
+    ActionMailer::Base.deliveries.size.should be emails_sent_before+2
     response.should render_template('thanks')
   end
 
