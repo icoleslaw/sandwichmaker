@@ -2,10 +2,14 @@ require 'spec_helper'
 
 describe MainController do
 
-  it "should save an order in response to a post" do
+  it "should save an order and send an email in response to a post" do
     Order.all.size.should be 0
+    ActionMailer::Base.deliveries.size.should be 0
+
     post :postorder, order: {name: 'Alex', email: 'alex@gmail.com', ordertype: 'vegan'}
     Order.all.size.should be 1
+
+    ActionMailer::Base.deliveries.size.should be 1
     response.should render_template('thanks')
   end
 

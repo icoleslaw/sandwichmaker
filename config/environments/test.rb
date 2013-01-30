@@ -34,4 +34,6 @@ Sandwhichmaker::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.sandwich_notify_email = 'fakeemailfortest'
 end
