@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Order do
+
+  let (:valid_order) {Order.new(name: 'Alex', email: 'abc@gmail.com', ordertype: 'veggie')}
+
   it "requires a valid name and email and type" do
     # Empty name
     o=Order.new(name: '', email: 'abc@gmail.com', ordertype: 'veggie')
@@ -14,7 +17,10 @@ describe Order do
     o=Order.new(name: 'Alex', email: 'abc@gmail.com', ordertype: 'abcdefg')
     o.save.should be_false
 
-    o=Order.new(name: 'Alex', email: 'abc@gmail.com', ordertype: 'veggie')
-    o.save.should be_true
+    valid_order.save.should be_true
+  end
+
+  it "should return an empty list for ingredients when none are set" do
+    valid_order.ingredients.should eq []
   end
 end

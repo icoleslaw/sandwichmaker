@@ -7,4 +7,21 @@ class Order < ActiveRecord::Base
   validates :email, presence: {message: "is required"}, format: { with: VALID_EMAIL_REGEX }
 
   validates :ordertype, presence: {message: "must be chosen"}, inclusion: { in: %w(meaty veggie vegan) }
+
+  serialize :ingredients
+
+  # Converts the ingredients from a parameter hash to an array prior to saving.
+  # I suspect it may be possible to set up the rails form in a better way so we
+  # don't need to do this.
+  def ingredients=(o)
+    if (o.instance_of?(HashWithIndifferentAccess))
+      super o.values
+    else
+      super o
+    end
+  end
+
+  def ingredients
+    read_attribute(:ingredients)||[]
+  end
 end

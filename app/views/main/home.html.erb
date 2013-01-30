@@ -19,6 +19,24 @@
     <%= f.radio_button :ordertype, 'veggie' %>Veggie
     <%= f.radio_button :ordertype, 'vegan' %>Vegan
   <% end %>
+  <br>
+
+  <label id="ingredients-label">Select Yo Ingredients</label>
+  <div id="ingredient-list-meaty">
+    <% get_meat_ingredients.each_with_index do |name, i| %>
+      <%= check_box_tag "order[ingredients][meat-#{i}]", name %><%= name %>
+    <% end %> 
+  </div>
+  <div id="ingredient-list-veggie">
+    <% get_veggie_ingredients.each_with_index do |name, i| %>
+      <%= check_box_tag "order[ingredients][veggie-#{i}]", name %><%= name %>
+    <% end %> 
+  </div>
+  <div id="ingredient-list-vegan">
+    <% get_vegan_ingredients.each_with_index do |name, i| %>
+      <%= check_box_tag "order[ingredients][vegan-#{i}]", name %><%= name %>
+    <% end %> 
+  </div>
   <%= f.submit "Submit", class:"btn btn-primary" %>
   </fieldset>
 <% end %>

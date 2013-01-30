@@ -13,6 +13,16 @@ describe MainController do
     response.should render_template('thanks')
   end
 
+  it "should save ingredients" do
+    Order.all.size.should be 0
+    # TODO: use let
+    ingredients = {"veggie-0"=>"ostrich egg", "veggie-2"=>"fungus"}
+    post :postorder, order: {name: 'Alex', email: 'alex@gmail.com', ordertype: 'veggie', ingredients: ingredients}
+    Order.all.size.should be 1
+    saved=Order.all[0]
+    saved.ingredients.should eq ['ostrich egg', 'fungus']
+  end
+
   it "should redisplay order form in response to an invalid post" do
     post :postorder, order: {}
     response.should render_template('home')

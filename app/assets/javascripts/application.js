@@ -13,3 +13,26 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+clear_ingredients = function() {
+  $('[id^="order_ingredients"]').attr('checked', false);
+}
+
+hide_ingredients = function() {
+  $('[id^="ingredient-list"]').hide();
+}
+
+show_ingredients_handler = function(kind_id) {
+  return function() {
+    clear_ingredients()
+    hide_ingredients()
+    $('#ingredients-label').show()
+    $('#'+kind_id).show()
+  }
+}
+
+$(function() {
+  $('#order_ordertype_meaty').click(show_ingredients_handler('ingredient-list-meaty')) 
+  $('#order_ordertype_veggie').click(show_ingredients_handler('ingredient-list-veggie')) 
+  $('#order_ordertype_vegan').click(show_ingredients_handler('ingredient-list-vegan'))
+})

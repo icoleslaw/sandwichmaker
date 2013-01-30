@@ -11,4 +11,17 @@ def wrap_field_with_error(object, field)
   end
 end
 
+def get_meat_ingredients
+  ['bacon', 'kidneys', 'rubber', 'Firefox']
+end
+
+def get_veggie_ingredients
+  ['ostrich egg', 'milk', 'fungus']
+end
+
+def get_vegan_ingredients
+  ['Oak', 'Redwood', 'Juniper']
+end
+
+
 end
