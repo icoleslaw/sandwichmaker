@@ -64,4 +64,16 @@ Sandwhichmaker::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.webfaction.com',
+    :port           => 587,
+    :domain         => 'adingle.webfactional.com',
+    :authentication => :login,
+    :user_name      => '--username-goes-here--',
+    :password       => '--password-goes-here--',
+    :enable_starttls_auto => true
+  }
+
+  config.sandwich_notify_email = '--notify-email-goes-here--'
 end

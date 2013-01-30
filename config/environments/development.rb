@@ -42,12 +42,12 @@ Sandwhichmaker::Application.configure do
     address: 'smtp.gmail.com',
     port: 587,
     domain: 'gmail.com',
-    user_name: '--invalid--',
-    password: '--invalid--',
+    user_name: '--username-goes-here--',
+    password: '--password-goes-here--',
     authentication: :plain,
     enable_starttls_auto: true
   }
 
   # Where to send the request for a sandwich
-  config.sandwich_notify_email = '--notifyemailgoeshere--'
+  config.sandwich_notify_email = '--notify-email-goes-here--'
 end
